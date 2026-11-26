@@ -8,8 +8,19 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const LINE: string =
-  'My calendar invited me to a meeting with myself to discuss why I keep accepting meetings, and I simply could not say no to me.';
+// The excuse is built from its two clauses: the setup, in which the
+// calendar books a meeting with the one person whose invitations cannot
+// be declined, and the punchline that follows from it.
+const SETUP: string =
+  'My calendar invited me to a meeting with myself to discuss why I keep accepting meetings';
+const PUNCHLINE: string = 'I simply could not say no to me.';
+
+// Assemble the one-line excuse from its clauses.
+function excuse(): string {
+  return `${SETUP}, and ${PUNCHLINE}`;
+}
+
+const LINE: string = excuse();
 
 const outputDir: string = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
